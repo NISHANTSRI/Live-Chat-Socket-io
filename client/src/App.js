@@ -1,7 +1,7 @@
 import './App.css';
 import io from 'socket.io-client';
 import { useState } from 'react';
-import Chat from 'Chat.js'
+import Chat from './Chat.js'
 // eslint-disable-next-line
 const socket = io.connect('http://localhost:3001');
 
