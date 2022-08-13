@@ -21,6 +21,11 @@ const io = new Server(server, {
 // so what this server instance does is it looks for the type of event we psecify in it and listen to the event accordingly,,, basically it works upon the event it requires it for the processing
 io.on('connection', (socket) => {
     console.log(socket.id);
+
+    // the event when the user will disconnect from the server
+    socket.on('disconnect', () => {
+        console.log('User Disonnected', socket.id);
+    })
 });
 
 
