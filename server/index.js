@@ -26,6 +26,10 @@ io.on('connection', (socket) => {
         console.log(`User joined ${socket.id} room id ${data}`);
     })
     // the event when the user will disconnect from the server
+
+    socket.on('send_message', (data) => {
+        console.log(data);
+    });
     socket.on('disconnect', () => {
         console.log('User Disonnected', socket.id);
     })
