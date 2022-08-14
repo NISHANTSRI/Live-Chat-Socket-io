@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-
+  // removed the strict mode to stop rendering my messages twice
   <App />
 
 );
