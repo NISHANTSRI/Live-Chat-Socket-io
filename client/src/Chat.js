@@ -1,5 +1,4 @@
 import React from 'react'
-import { FaArrowAltCircleRight } from "react-icons/fa";
 
 function Chat({ socket, name, room }) {
     return (
@@ -10,7 +9,7 @@ function Chat({ socket, name, room }) {
             <div className="chat-body"></div>
             <div className="chat-footer">
                 <input type='text' placeholder='Hey!' />
-                <button><FaArrowAltCircleRight /></button>
+                <button>&#9658;</button>
             </div>
         </div>
     )
