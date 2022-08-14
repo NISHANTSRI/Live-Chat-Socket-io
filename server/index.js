@@ -20,17 +20,21 @@ const io = new Server(server, {
 
 // so what this server instance does is it looks for the type of event we psecify in it and listen to the event accordingly,,, basically it works upon the event it requires it for the processing
 io.on('connection', (socket) => {
+
     console.log(`User Connected : ${socket.id}`);
+
     socket.on('join_room', (data) => {
         socket.join(data);
         console.log(`User joined ${socket.id} room id ${data}`);
     })
-    // the event when the user will disconnect from the server
 
     socket.on('send_message', (data) => {
         // we send data to the frntend to sync with the realtime data
         socket.to(data.room).emit('receive_message', data);
     });
+
+
+    // the event when the user will disconnect from the server
     socket.on('disconnect', () => {
         console.log('User Disonnected', socket.id);
     })
