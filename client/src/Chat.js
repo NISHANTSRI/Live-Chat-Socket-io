@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 
 function Chat({ socket, name, room }) {
@@ -18,6 +18,14 @@ function Chat({ socket, name, room }) {
             await socket.emit('send_message', messageData);
         }
     }
+
+    // this use effect hook was created because after we have received the messsage from our own what we want to do is to let ohet also send and recieve our mesaage ,,, so what we did is we crete anoter socket event receive message in the use effect hook and gave it the data that was recieved in the index.js vis the send_message event to asychrunosly.
+    useEffect(() => {
+        socket.on('receive_message', (data) => {
+            console.log(data);
+        })
+    }, [socket])
+
 
     return (
         <div>

@@ -28,7 +28,8 @@ io.on('connection', (socket) => {
     // the event when the user will disconnect from the server
 
     socket.on('send_message', (data) => {
-        console.log(data);
+        // we send data to the frntend to sync with the realtime data
+        socket.to(data.room).emit('receive_message', data);
     });
     socket.on('disconnect', () => {
         console.log('User Disonnected', socket.id);
