@@ -6,11 +6,8 @@ import Chat from './Chat.js'
 const socket = io.connect('http://localhost:3001');
 
 function App() {
-  // eslint-disable-next-line
   const [name, setName] = useState("");
-  // eslint-disable-next-line
   const [room, setRoom] = useState('');
-  // eslint-disable-next-line
   const joinRoom = () => {
     if (name !== '' && room !== '') {
       socket.emit('join_room', room);
