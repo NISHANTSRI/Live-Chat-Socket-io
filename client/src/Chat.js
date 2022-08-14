@@ -19,6 +19,7 @@ function Chat({ socket, name, room }) {
 
             await socket.emit('send_message', messageData);
             setMessageList((list) => [...list, messageData])
+            setCurrentMessage('')
         }
     }
 
@@ -54,6 +55,7 @@ function Chat({ socket, name, room }) {
             </div>
             <div className="chat-footer">
                 <input type='text' placeholder='Hey!'
+                    value={currentMessage}
                     onChange={(e) => {
                         setCurrentMessage(e.target.value)
                     }}
