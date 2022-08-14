@@ -16,16 +16,18 @@ function App() {
 
   return (
     <div className="App">
-      <h3>Join A Room</h3>
-      <input type="text" placeholder='Enter your name' onChange={(e) => {
-        setName(e.target.value);
-      }} />
-      <input type="text" placeholder='Enter the room ID' onChange={(e) => {
-        setRoom(e.target.value);
-      }} />
-      <button onClick={joinRoom}>JOIN</button>
+      <div className="joinChatContainer">
+        <h3>Join A Room</h3>
+        <input type="text" placeholder='Enter your name' onChange={(e) => {
+          setName(e.target.value);
+        }} />
+        <input type="text" placeholder='Enter the room ID' onChange={(e) => {
+          setRoom(e.target.value);
+        }} />
+        <button onClick={joinRoom}>JOIN</button>
 
-      <Chat socket={socket} name={name} room={room} />
+        <Chat socket={socket} name={name} room={room} />
+      </div>
     </div>
   );
 }
