@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import ScrollToBottom from 'react-scroll-to-bottom'
 
 
 function Chat({ socket, name, room }) {
@@ -35,19 +36,21 @@ function Chat({ socket, name, room }) {
                 <p> Live Chat </p>
             </div>
             <div className="chat-body">
-                {messageList.map((messageContent) => {
-                    return <div className="message" id={name === messageContent.author ? 'you' : 'other'}>
-                        <div>
-                            <div className="message-content">
-                                <p>{messageContent.message}</p>
-                            </div>
-                            <div className="message-meta">
-                                <p id='time'>{messageContent.time}</p>
-                                <p id='author'>{messageContent.author}</p>
+                <ScrollToBottom className='message-container'>
+                    {messageList.map((messageContent) => {
+                        return <div className="message" id={name === messageContent.author ? 'you' : 'other'}>
+                            <div>
+                                <div className="message-content">
+                                    <p>{messageContent.message}</p>
+                                </div>
+                                <div className="message-meta">
+                                    <p id='time'>{messageContent.time}</p>
+                                    <p id='author'>{messageContent.author}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                })}
+                    })}
+                </ScrollToBottom>
             </div>
             <div className="chat-footer">
                 <input type='text' placeholder='Hey!'
